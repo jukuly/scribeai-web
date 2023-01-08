@@ -1,4 +1,6 @@
 nav {
+  position: fixed;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: end;
@@ -15,23 +17,23 @@ nav {
 .download {
   button {
     color:#5c21ff ;
-    background-color: #FEF6FF;
-    border-color: #FEF6FF;
+    background-color: #FFFFFF;
+    border-color: #FFFFFF;
   }
   button:hover {
-    color: #FEF6FF;
+    color: #FFFFFF;
     background-color: transparent;
   }
 }
 
 .sign-in {
   button {
-    color: #FEF6FF;
+    color: #FFFFFF;
     background-color: transparent;
     border-color: transparent;
   }
   button:hover {
-    border-color: #FEF6FF;
+    border-color: #FFFFFF;
   }
 }
 
@@ -41,7 +43,7 @@ button {
   border: solid 1px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 350ms, border-color 350ms, color 350ms;
+  transition: background-color 300ms, border-color 300ms, color 300ms;
 }
 button:active {
   padding: calc(0.5rem - 1px) calc(0.75rem - 1px) calc(0.5rem - 1px) calc(0.75rem - 1px);
