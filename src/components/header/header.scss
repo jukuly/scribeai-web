@@ -1,0 +1,49 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 0.5rem;
+  background-color: #5c21ff;
+  padding: 1rem;
+}
+
+.logo {
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.download {
+  button {
+    color:#5c21ff ;
+    background-color: #FEF6FF;
+    border-color: #FEF6FF;
+  }
+  button:hover {
+    color: #FEF6FF;
+    background-color: transparent;
+  }
+}
+
+.sign-in {
+  button {
+    color: #FEF6FF;
+    background-color: transparent;
+    border-color: transparent;
+  }
+  button:hover {
+    border-color: #FEF6FF;
+  }
+}
+
+button {
+  font-weight: 700;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  border: solid 1px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 350ms, border-color 350ms, color 350ms;
+}
+button:active {
+  padding: calc(0.5rem - 1px) calc(0.75rem - 1px) calc(0.5rem - 1px) calc(0.75rem - 1px);
+  border-width: 2px;
+}
