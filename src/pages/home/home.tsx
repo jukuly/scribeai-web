@@ -1,32 +1,60 @@
+import DownArrow from '../../components/downArrow/downArrow';
 import './home.scss';
+import ShowOff from './showOff/showOff';
 
-export default function() {
+export default function({ top } : { top: boolean }) {
+
   return (
-    <main>
-      <div className='hero'>
-        <h1 className='title'>
-          <span className='gradient-text'>ScribeAI.</span>
-          <br />
-          <span className='description'>The AI powered writing assistant.</span>
-        </h1>
-        <div className='show-off'>
-          <div className='text-editor'>
-            <div className='menu'>
-              <span className='material-symbols-outlined minimize'>minimize</span>
-              <span className='material-symbols-outlined close'>close</span>
-            </div>
-            <p className='text'>
-              Hello professor,<br />
+    <>
+      <main>
+        <section className='hero'>
+          <div className='gradient-circle'></div>
+          <div className='content'>
+            <h1 className='title'>
+              <span className='gradient-text'>ScribeAI.</span>
               <br />
-              <span className='selected'>I was wondering if after next class, I could come to your office to talk about the last exam. There</span>
-            </p>
-            <div className='pop-up'>
-              <img src={require('../../assets/show-off-pop-up.png')} alt='show-off-pop-up' draggable='false' />
-              <span className='material-symbols-outlined close pointer'>near_me</span>
-            </div>
+              <span className='description'>
+                The ScribeAI desktop app utilizes artificial intelligence to boost productivity and help write better texts with features like text completion and rephrasing.
+              </span>
+            </h1>
+            <ShowOff />
           </div>
-        </div>
-      </div>
-    </main>
+        </section>
+        <section className='first-section'>
+          <div className='content'>
+            <div className='left-side'>
+              <h2>Included</h2>
+              <ul>
+                <li>
+                  Text completion
+                </li>
+                <li>
+                  Grammar correction
+                </li>
+                <li>
+                  Rephrasing
+                </li>
+                <li>
+                  Translation
+                </li> 
+              </ul>
+              <span className='try-me'>Try me</span>
+            </div>
+            <div className='right-side'>
+
+            </div>            
+          </div>
+        </section>
+        <section className='second-section'>
+          <div className='content'>
+            this is the second section
+          </div>
+        </section>
+      </main>
+      {
+        top &&
+        <DownArrow />
+      }
+    </>
   );
 }

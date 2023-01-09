@@ -1,10 +1,11 @@
 import './header.scss';
 
 export default function() {
+
   return (
-    <nav>
-      <a className='logo' href='/'>
-        Home
+    <nav className='header'>
+      <a className='home' href='/'>
+        ScribeAI.
       </a>
       <a className='download' href='/download'>
         <button>

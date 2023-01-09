@@ -10,6 +10,7 @@ img, picture, svg, video {
 body {
   font-family: 'Nunito Sans', sans-serif;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 code {
@@ -26,7 +27,7 @@ code {
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
-  'wght' 300,
+  'wght' 100,
   'GRAD' 200,
   'opsz' 48
 }
