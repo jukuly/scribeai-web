@@ -24,24 +24,39 @@ export default function({ top } : { top: boolean }) {
           <div className='content'>
             <div className='left-side'>
               <h2>Included</h2>
-              <ul>
+              <ul className='features'>
                 <li>
                   Text completion
+                  <p>
+                    AI is used to give suggestions based on the context.<br />
+                    You can also give a few keywords so you can spend less
+                    time thinking how and more time thinking what.
+                  </p>
                 </li>
                 <li>
                   Grammar correction
+                  <p>
+                    So you can stop stressing about writing mistake-free.
+                  </p>
                 </li>
                 <li>
                   Rephrasing
+                  <p>
+                    Ever felt like what you wrote doesn't make sense?<br />
+                    Maybe you suddently want to change an essay's style?<br />
+                    Whatever it is, the rephrasing tool is life changing.
+                  </p>
                 </li>
                 <li>
                   Translation
+                  <p>
+                    So you never feel limited by language anymore.
+                  </p>
                 </li> 
               </ul>
-              <span className='try-me'>Try me</span>
             </div>
             <div className='right-side'>
-
+              There will be a demo here
             </div>            
           </div>
         </section>

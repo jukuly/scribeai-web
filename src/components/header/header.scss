@@ -30,6 +30,12 @@
       background-color: transparent;
     }
   }
+
+  @media (max-width: 450px) {
+    .download {
+      display: none;
+    }
+  }
   
   .sign-in {
     button {
