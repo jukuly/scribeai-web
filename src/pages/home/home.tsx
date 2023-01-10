@@ -56,7 +56,9 @@ export default function({ top } : { top: boolean }) {
               </ul>
             </div>
             <div className='right-side'>
-              There will be a demo here
+              <div className='video-wrapper'>
+                <video src={require('../../assets/show-off-video.mp4')} autoPlay loop muted />
+              </div>
             </div>            
           </div>
         </section>

@@ -14,7 +14,7 @@ export default function() {
       </p>
       <div className='pop-up'>
         <img src={require('../../../assets/show-off-pop-up.png')} alt='show-off-pop-up' draggable='false' />
-        <span className='material-symbols-outlined close pointer'>near_me</span>
+        <span className='material-symbols-outlined pointer'>near_me</span>
       </div>
     </div>
   );
