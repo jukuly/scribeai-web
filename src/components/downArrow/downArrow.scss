@@ -5,16 +5,14 @@
   transform: translateX(-50%);
   background-color: #5c21ff;
   color: #FFFFFF;
+  text-decoration: none;
   padding: 0.5rem;
   border-radius: 50%;
-  cursor: pointer;
   display: grid;
   place-content: center;
+  cursor: pointer;
   transition: 150ms;
-  animation-name: up-down;
-  animation-duration: 2.5s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
+  animation: up-down 2.5s ease-in-out infinite;
   span {
     font-size: 1.75rem;
     transition: 150ms;
@@ -27,6 +25,13 @@
     font-size: 2.25rem;
   }
 }
+
+@media (max-width: 40rem) {
+  .down-arrow {
+    display: none;
+  }
+}
+
 @keyframes up-down {
   0% {
     bottom: 40px;

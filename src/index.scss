@@ -7,6 +7,11 @@ img, picture, svg, video {
   max-width: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 10rem;
+}
+
 body {
   font-family: 'Nunito Sans', sans-serif;
   min-height: 100vh;

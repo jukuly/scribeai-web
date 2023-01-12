@@ -7,20 +7,21 @@ export default function({ top } : { top: boolean }) {
   return (
     <>
       <main>
-        <section className='hero'>
-          <div className='gradient-circle'></div>
+        <section id='hero'>
           <div className='content'>
-            <h1 className='title'>
-              <span className='gradient-text'>ScribeAI.</span>
-              <br />
-              <span className='description'>
+            <div className='gradient-circle'></div>
+            <div className='title'>
+              <h1 className='gradient-text'>
+                ScribeAI.
+              </h1>
+              <h2 className='description'>
                 The ScribeAI desktop app utilizes artificial intelligence to boost productivity and help write better texts with features like text completion and rephrasing.
-              </span>
-            </h1>
+              </h2>
+            </div>
             <ShowOff />
           </div>
         </section>
-        <section className='first-section'>
+        <section id='first-section'>
           <div className='content'>
             <div className='left-side'>
               <h2>Included</h2>
@@ -57,14 +58,19 @@ export default function({ top } : { top: boolean }) {
             </div>
             <div className='right-side'>
               <div className='video-wrapper'>
-                <video src={require('../../assets/show-off-video.mp4')} autoPlay loop muted />
+                <video src={require('../../assets/show-off-video.mp4')} autoPlay loop muted playsInline />
               </div>
             </div>            
           </div>
         </section>
-        <section className='second-section'>
+        <section id='second-section'>
           <div className='content'>
-            this is the second section
+            Works on any software!!!!!!
+          </div>
+        </section>
+        <section id='third-section'>
+          <div className='content'>
+            "ScribeAI is so cool!!!!!!"
           </div>
         </section>
       </main>

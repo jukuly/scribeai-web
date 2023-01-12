@@ -1,8 +1,7 @@
 .show-off {
   position: relative;
-  margin-left: 4rem;
-  margin-right: 4rem;
-  width: calc(100% - 8rem);
+  margin: 0 2rem;
+  width: calc(100% - 4rem);
   height: 330px;
   border-radius: 5px;
   padding: 0.75rem;
@@ -16,9 +15,7 @@
     display: flex;
     justify-content: flex-end;
     gap: 5px;
-    margin-top: -0.75rem;
-    margin-left: -0.75rem;
-    margin-right: -0.75rem;
+    margin: -0.75rem -0.75rem 0 -0.75rem;
     padding: 0.25rem;
     .minimize {
       transform: translateY(-5px);
@@ -35,11 +32,7 @@
     position: relative;
     display: flex;
     justify-content: flex-end;
-    top: 2%;
-    right: 5%;
-    img {
-      display: inline;
-    }
+    top: 5px;
     .pointer {
       position: absolute;
       top: 22%;
@@ -52,21 +45,11 @@
       transform: rotate(285deg);
     }
   }
-  @media (max-width: 1200px) {
-    .pop-up {
-      right: 0;
-    }
-  }
 }
-@media (max-width: 500px) {
+@media (max-width: 40rem) {
   .show-off {
     height: 275px;
+    margin: 0;
+    width: 100%;
   }
 }
-@media (max-width: 1200px) {
-  .show-off {
-    margin-left: 0;
-    margin-right: 0;
-    width: calc(100% - 4rem);
-  }
-} 

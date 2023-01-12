@@ -2,8 +2,8 @@ import './downArrow.scss';
 
 export default function() {
   return (
-    <div className='down-arrow'>
-      <span className='material-symbols-outlined'>expand_more</span>
-    </div>
+    <a className='down-arrow' href='#first-section'>
+      <span className='material-symbols-outlined' >expand_more</span>
+    </a>
   );
 }
