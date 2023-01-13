@@ -1,13 +1,13 @@
 import DownArrow from '../../components/downArrow/downArrow';
+import AppSpinner from './appSpinner/appSpinner';
 import './home.scss';
 import ShowOff from './showOff/showOff';
 
 export default function({ top } : { top: boolean }) {
-
   return (
     <>
       <main>
-        <section id='hero'>
+        <header id='hero'>
           <div className='content'>
             <div className='gradient-circle'></div>
             <div className='title'>
@@ -20,11 +20,11 @@ export default function({ top } : { top: boolean }) {
             </div>
             <ShowOff />
           </div>
-        </section>
+        </header>
         <section id='first-section'>
           <div className='content'>
             <div className='left-side'>
-              <h2>Included</h2>
+              <h1>Included</h1>
               <ul className='features'>
                 <li>
                   Text completion
@@ -37,7 +37,7 @@ export default function({ top } : { top: boolean }) {
                 <li>
                   Grammar correction
                   <p>
-                    So you can stop stressing about writing mistake-free.
+                    So you can stop stressing about perfect writing.
                   </p>
                 </li>
                 <li>
@@ -65,7 +65,9 @@ export default function({ top } : { top: boolean }) {
         </section>
         <section id='second-section'>
           <div className='content'>
-            Works on any software!!!!!!
+            <h1>Works wherever you write</h1>
+            <h2>Word, Outlook, Discord, you name it.</h2>
+            <AppSpinner />
           </div>
         </section>
         <section id='third-section'>

@@ -1,0 +1,114 @@
+.spin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 4 / 1;
+  max-height: 130px;
+
+  .item {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    width: 100px;
+    animation-duration: 1500ms;
+  }
+  .item:not(.other, .enter, .quit) {
+    margin: 0 clamp(0.5rem, 0.5rem + 0.5vw, 1rem);
+  }
+  .item.second {
+    opacity: 0.8;
+    width: 110px;
+  }
+  .item.third {
+    opacity: 0.5;
+    width: 90px;
+  }
+  .item.other,
+  .item.enter {
+    width: 0;
+  }
+  .item.third.left {
+    animation-name: third-left;
+  }
+  .item.second.left {
+    animation-name: second-left;
+  }
+  .item.main {
+    animation-name: main;
+    width: 130px;
+  }
+  .item.second.right {
+    animation-name: second-right;
+  }
+  .item.third.right {
+    animation-name: third-right;
+  }
+  .item.quit {
+    animation-name: quit;
+    width: 0px;
+  }
+  @keyframes third-left {
+    0% {
+      margin: 0;
+      width: 0px;
+      opacity: 0;
+    }
+    100% {
+      margin: 0 clamp(0.5rem, 0.5rem + 0.5vw, 1rem);
+      width: 90px;
+      opacity: 0.5;
+    }
+  }
+  @keyframes second-left {
+    0% {
+      width: 90px;
+      opacity: 0.5;
+    }
+    100% {
+      width: 110px;
+      opacity: 0.8;
+    }
+  }
+  @keyframes main {
+    0% {
+      width: 110px;
+      opacity: 0.8;
+    }
+    100% {
+      width: 130px;
+      opacity: 1;
+    }
+  }
+  @keyframes second-right {
+    0% {
+      width: 130px;
+      opacity: 1;
+    }
+    100% {
+      width: 110px;
+      opacity: 0.8;
+    }
+  }
+  @keyframes third-right {
+    0% {
+      width: 110px;
+      opacity: 0.8;
+    }
+    100% {
+      width: 90px;
+      opacity: 0.5;
+    }
+  }
+  @keyframes quit {
+    0% {
+      margin: 0 clamp(0.5rem, 0.5rem + 0.5vw, 1rem);
+      width: 90px;
+      opacity: 0.5;
+    }
+    100% {
+      margin: 0;
+      width: 0px;
+      opacity: 0;
+    }
+  }
+}
