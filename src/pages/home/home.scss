@@ -13,20 +13,26 @@ main {
   transform: translateX(-50%);
 }
 
+.gradient-circle {
+  position: absolute;
+  background-image: radial-gradient(circle calc(var(--size) / 2), #9B89B3, #5c21ff, transparent);
+  background-size: var(--size) var(--size);
+  width: var(--size);
+  height: var(--size);
+  opacity: 20%;
+  z-index: -1;
+}
+
 #hero {
-  margin-top: clamp(6rem, 4rem + 5vw, 9rem);
+  margin-top: clamp(6rem, 6rem + 4vw, 9rem);
   position: relative;
+  overflow: hidden;
+  padding-bottom: 200px;
 
   .gradient-circle {
-    position: absolute;
-    width: 1200px;
-    height: 800px;
-    background-image: radial-gradient(circle 600px, #9B89B3, #5c21ff, transparent);
-    background-size: 1200px 1200px;
-    opacity: 20%;
+    --size: 1200px;
     right: -520px;
     top: 60px;
-    z-index: -1;
   }
 
   .title {
@@ -35,14 +41,14 @@ main {
   }
   
   .gradient-text {
-    font-size: clamp(3rem, 3rem + 5vw, 8rem);
+    font-size: clamp(3rem, 3rem + 6.67vw, 8rem);
     background-image: linear-gradient(90deg, #5c21ff, #9B89B3);
     background-clip: text;
     color: transparent;
   }
   
   .description {
-    font-size: clamp(1rem, 1rem + 0.93vw, 1.5rem);
+    font-size: clamp(1rem, 1rem + 0.67vw, 1.5rem);
   }
 
   @media (min-width: 40rem) {
@@ -55,14 +61,14 @@ main {
 
 section {
   h1 {
-    font-size: clamp(2rem, 2rem + 1.875vw, 3rem);
+    font-size: clamp(2rem, 2rem + 1.33vw, 3rem);
     font-weight: 200;
     text-align: center;
   }
+  overflow: hidden;
 }
 
 #first-section {
-  margin-top: 200px;
   padding-top: 1rem;
   padding-bottom: 2rem;
   color: #FFFFFF;
@@ -121,20 +127,20 @@ section {
 }
 
 #second-section {
-  padding: clamp(1.5rem, 2rem + 2vw, 3rem) 0;
+  padding: clamp(1.5rem, 1.5rem + 6vw, 6rem) 0;
 
   .content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: clamp(0.5rem, 0.5rem + 0.5vw, 2rem);
+    gap: clamp(0.5rem, 0.5rem + 2vw, 2rem);
   }
 
   h2 {
-    font-size: clamp(1rem, 1rem + 0.93vw, 1.5rem);
+    font-size: clamp(1rem, 1rem + 0.67vw, 1.5rem);
     font-weight: 200;
-    margin-bottom: clamp(0rem, 0.5vw, 1.5rem);
+    margin-bottom: clamp(0rem, 2.67vw, 2rem);
   }
 }
 
