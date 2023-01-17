@@ -1,31 +1,31 @@
 import DownArrow from '../../components/downArrow/downArrow';
 import AppSpinner from './appSpinner/appSpinner';
-import './home.scss';
+import styles from './home.module.scss';
 import ShowOff from './showOff/showOff';
 
 export default function({ top } : { top: boolean }) {
   return (
     <>
       <main>
-        <header id='hero'>
-          <div className='content'>
-            <div className='gradient-circle'></div>
-            <div className='title'>
-              <h1 className='gradient-text'>
+        <header className={styles.hero}>
+          <div className={styles.content}>
+            <div className={styles.gradientCircle}></div>
+            <div className={styles.title}>
+              <h1 className={styles.gradientText}>
                 ScribeAI.
               </h1>
-              <h2 className='description'>
+              <h2 className={styles.description}>
                 The ScribeAI desktop app utilizes artificial intelligence to boost productivity and help write better texts with features like text completion and rephrasing.
               </h2>
             </div>
             <ShowOff />
           </div>
         </header>
-        <section id='first-section'>
-          <div className='content'>
-            <div className='left-side'>
+        <section className={styles.firstSection} id='first-section'>
+          <div className={styles.content}>
+            <div className={styles.leftSide}>
               <h1>Included</h1>
-              <ul className='features'>
+              <ul className={styles.features}>
                 <li>
                   Text completion
                   <p>
@@ -56,22 +56,22 @@ export default function({ top } : { top: boolean }) {
                 </li> 
               </ul>
             </div>
-            <div className='right-side'>
-              <div className='video-wrapper'>
+            <div className={styles.rightSide}>
+              <div className={styles.videoWrapper}>
                 <video src={require('../../assets/show-off-video.mp4')} autoPlay loop muted playsInline />
               </div>
             </div>            
           </div>
         </section>
-        <section id='second-section'>
-          <div className='content'>
+        <section className={styles.secondSection}>
+          <div className={styles.content}>
             <h1>Works wherever you write</h1>
             <h2>Word, Outlook, Discord, you name it.</h2>
             <AppSpinner />
           </div>
         </section>
-        <section id='third-section'>
-          <div className='content'>
+        <section className={styles.thirdSection}>
+          <div className={styles.content}>
             "ScribeAI is so cool!!!!!!"
           </div>
         </section>

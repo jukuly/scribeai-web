@@ -13,7 +13,7 @@ main {
   transform: translateX(-50%);
 }
 
-.gradient-circle {
+.gradientCircle {
   position: absolute;
   background-image: radial-gradient(circle calc(var(--size) / 2), #9B89B3, #5c21ff, transparent);
   background-size: var(--size) var(--size);
@@ -23,13 +23,13 @@ main {
   z-index: -1;
 }
 
-#hero {
+.hero {
   margin-top: clamp(6rem, 6rem + 4vw, 9rem);
   position: relative;
   overflow: hidden;
   padding-bottom: 200px;
 
-  .gradient-circle {
+  .gradientCircle {
     --size: 1200px;
     right: -520px;
     top: 60px;
@@ -40,7 +40,7 @@ main {
     margin-bottom: 2rem;
   }
   
-  .gradient-text {
+  .gradientText {
     font-size: clamp(3rem, 3rem + 6.67vw, 8rem);
     background-image: linear-gradient(90deg, #5c21ff, #9B89B3);
     background-clip: text;
@@ -68,7 +68,7 @@ section {
   overflow: hidden;
 }
 
-#first-section {
+.firstSection {
   padding-top: 1rem;
   padding-bottom: 2rem;
   color: #FFFFFF;
@@ -79,7 +79,7 @@ section {
     grid-template-columns: 2fr 3fr;
   }
 
-  .left-side {
+  .leftSide {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -98,14 +98,14 @@ section {
     }
   }
   
-  .right-side {
+  .rightSide {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     height: 100%;
     width: 100%;
 
-    .video-wrapper {
+    .videoWrapper {
       margin-top: 1rem;
       width: calc(100vw - 4rem);
       max-width: 24rem;
@@ -120,13 +120,13 @@ section {
     .content {
       grid-template-columns: 1fr;
     }
-    .right-side {
+    .rightSide {
       justify-content: center;
     }
   }
 }
 
-#second-section {
+.secondSection {
   padding: clamp(1.5rem, 1.5rem + 6vw, 6rem) 0;
 
   .content {
@@ -144,7 +144,7 @@ section {
   }
 }
 
-#third-section {
+.thirdSection {
   height: 40rem;
   background-color: #5c21ff;
 }

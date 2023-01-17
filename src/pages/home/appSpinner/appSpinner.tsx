@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import './appSpinner.scss';
+import styles from './appSpinner.module.scss';
 
 const writingApplications: {[key: string]: any} = {
   'word': require('../../../assets/writingApplicationsIcons/word.svg'),
@@ -14,13 +14,13 @@ const writingApplications: {[key: string]: any} = {
 export default function() {
   const [appSpinner, setAppSpinner] = useState<[string, string][]>(
     [
-      ['enter', 'word'],
-      ['third left', 'facebook'],
-      ['second left', 'chrome'],
-      ['main', 'discord'],
-      ['second right', 'outlook'],
-      ['third right', 'firefox'],
-      ['quit', 'twitter']
+      [styles.enter, 'word'],
+      [`${styles.third} ${styles.left}`, 'facebook'],
+      [`${styles.second} ${styles.left}`, 'chrome'],
+      [styles.main, 'discord'],
+      [`${styles.second} ${styles.right}`, 'outlook'],
+      [`${styles.third} ${styles.right}`, 'firefox'],
+      [styles.quit, 'twitter']
     ]
   );
 
@@ -36,10 +36,10 @@ export default function() {
   }
 
   return (
-    <div className='spin'>
+    <div className={styles.spin}>
       {
         appSpinner.map(item => 
-          <img className={`item ${item[0]}`} key={item[1]} src={writingApplications[item[1]].default} alt={item[1]} draggable={false} />
+          <img className={`${styles.item} ${item[0]}`} key={item[1]} src={writingApplications[item[1]].default} alt={item[1]} draggable={false} />
         )
       }
     </div>

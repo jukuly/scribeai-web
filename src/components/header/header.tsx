@@ -1,18 +1,18 @@
-import './header.scss';
+import styles from './header.module.scss';
 
 export default function() {
 
   return (
-    <nav className='header'>
-      <a className='home' href='/'>
+    <nav className={styles.header}>
+      <a className={styles.home} href='/'>
         ScribeAI.
       </a>
-      <a className='download' href='/download'>
+      <a className={styles.download} href='/download'>
         <button>
           Download
         </button>
       </a>
-      <a className='sign-in' href='/sign-in'>
+      <a className={styles.signIn} href='/sign-in'>
         <button>
           Sign In
         </button>

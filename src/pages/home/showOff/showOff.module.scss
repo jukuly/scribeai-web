@@ -1,4 +1,4 @@
-.show-off {
+.showOff {
   position: relative;
   margin: 0 2rem;
   width: calc(100% - 4rem);
@@ -28,7 +28,7 @@
     color: #FFFFFF;
     background-color: #9B89B3;
   } 
-  .pop-up {
+  .popUp {
     position: relative;
     display: flex;
     justify-content: flex-end;
@@ -47,7 +47,7 @@
   }
 }
 @media (max-width: 40rem) {
-  .show-off {
+  .showOff {
     height: 275px;
     margin: 0;
     width: 100%;
