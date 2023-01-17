@@ -1,4 +1,4 @@
-import styles from './signIn.module.scss';
+import styles from './signInMenu.module.scss';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
 import { authInstance } from "../../../firebase";

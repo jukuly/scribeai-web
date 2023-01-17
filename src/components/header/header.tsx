@@ -1,39 +1,42 @@
-import { useEffect, useRef, useState } from 'react';
+import { User } from 'firebase/auth';
+import { useRef, useState } from 'react';
 import useClickOutside from '../../hooks/useClickOutside';
+import AccountMenu from './accountMenu/accountMenu';
 import styles from './header.module.scss';
-import SignIn from './signIn/signIn';
+import SignInMenu from './signInMenu/signInMenu';
 
-export default function() {
-  const signInPopUp = useRef(null);
-  
-  const [signInClicked, setSignInClicked] = useState<boolean>(false);
-  
-  useClickOutside(signInPopUp, event => {
-    setSignInClicked(false);
+export default function({ user }: { user: User | null}) {
+  const accountPopUp = useRef(null);
+  const [accountClicked, setAccountClicked] = useState<boolean>(false);
+
+  useClickOutside(accountPopUp, event => {
+    setAccountClicked(false);
   });
 
   return (
     <nav className={styles.header}>
-      <ul>
-        <li className={styles.home}>
+      <ul className={styles.headerList}>
+        <li className={`${styles.home} ${styles.headerListItem}`}>
           <a href='/'>
             ScribeAI.
           </a>
         </li>
-        <li className={styles.download}>
+        <li className={`${styles.download} ${styles.headerListItem}`}>
           <a href='/download'>
             <button className={styles.headerButton}>
               Download
             </button>
           </a>
         </li>
-        <li className={styles.signIn}>
-          <button className={styles.headerButton} onClick={() => setSignInClicked(signInClicked => !signInClicked)}>
-            Sign In
+        <li className={`${styles.account} ${styles.headerListItem}`}>
+          <button className={styles.headerButton} onClick={() => setAccountClicked(accountClicked => true)}>
+            { 
+              user ? 'My Account' : 'Sign In' 
+            }
           </button>
-          <div ref={signInPopUp}>
+          <div ref={accountPopUp}>
             {
-              signInClicked && <SignIn />
+              accountClicked && (user ? <AccountMenu /> : <SignInMenu />)
             }
           </div>
         </li>

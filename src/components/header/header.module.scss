@@ -5,14 +5,14 @@
   background-color: #5c21ff;
   box-shadow: 0 0 25px rgba($color: #000000, $alpha: 0.2);
   z-index: 99999;
-  ul {
+  .headerList {
     list-style-type: none;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     gap: 0.5rem;
   }
-  li {
+  .headerListItem {
     position: relative;
   }
 
@@ -45,7 +45,7 @@
     }
   }
   
-  .signIn {
+  .account {
     .headerButton {
       color: #FFFFFF;
       background-color: transparent;

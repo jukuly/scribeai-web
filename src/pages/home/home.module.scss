@@ -37,7 +37,7 @@ main {
 
   .title {
     margin-bottom: 2rem;
-    font-weight: 200;
+    font-weight: 300;
   }
   
   .gradientText {
@@ -62,7 +62,7 @@ main {
 section {
   h1 {
     font-size: clamp(2rem, 2rem + 1.33vw, 3rem);
-    font-weight: 200;
+    font-weight: 300;
     text-align: center;
   }
   overflow: hidden;
@@ -90,7 +90,7 @@ section {
         margin-top: 1rem;
         list-style-type: '- ';
         font-size: clamp(1rem, 1rem + 0.93vw, 1.5rem);
-        font-weight: 200;
+        font-weight: 300;
         p {
           font-size: clamp(0.9rem, 0.9rem + 0.6875vw, 1.1rem);
         }
@@ -139,7 +139,7 @@ section {
 
   h2 {
     font-size: clamp(1rem, 1rem + 0.67vw, 1.5rem);
-    font-weight: 200;
+    font-weight: 300;
     margin-bottom: clamp(0rem, 2.67vw, 2rem);
   }
 }
