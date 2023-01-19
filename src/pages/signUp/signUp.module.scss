@@ -53,13 +53,22 @@
     outline: none;
     border-bottom: solid 1px #5c21ff;
   }
-  input:not(.name, .lastName), .buttonContainer {
+  input:not(.name, .lastName), .belowFields {
     grid-column: span 2;
   }
 
-  .buttonContainer {
+  
+  .belowFields {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    span {
+      font-size: 0.75rem;
+      color: red;
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 0.75rem;
+      border: solid 1px #ffffff;
+    }
   }
   .signUpButton {
     background-color: rgb(255, 255, 255);

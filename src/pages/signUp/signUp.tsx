@@ -1,5 +1,5 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { RefObject, useRef } from 'react';
+import { RefObject, useRef, useState } from 'react';
 import { authInstance } from '../../firebase';
 import styles from './signUp.module.scss';
 
@@ -36,6 +36,8 @@ function isPasswordConfirmValid(passwordRef: RefObject<HTMLInputElement>, passwo
 }
 
 export default function() {
+  const [error, setError] = useState<string>('');
+
   const name = useRef<HTMLInputElement>(null);
   const lastName = useRef<HTMLInputElement>(null);
   const email = useRef<HTMLInputElement>(null);
@@ -76,21 +78,20 @@ export default function() {
     } else {
       passwordConfirm.current?.setAttribute('class', ''); 
     }
-    if (!valid) return;
+    if (!valid) {
+      setError('Please fill every field');
+      return;
+    }
 
-    /*createUserWithEmailAndPassword(authInstance, email.current?.value!, email.current?.value!)
+    createUserWithEmailAndPassword(authInstance, email.current?.value!, email.current?.value!)
       .then(() => setError(''))
       .catch(err => {
-        if (err.code === 'auth/invalid-email' || err.code === 'auth/user-not-found'
-          || err.code === 'auth/wrong-password' || password === '') {
-          setError('E-mail or password is incorrect');
-        } else if (err.code === 'auth/user-disabled') {
-          setError('This user is suspended');
+        if (err.code === 'auth/email-already-in-use') {
+          setError('This email is already taken');
         } else {
           setError(err.code);
         }
-        setPassword('');
-      });*/
+      });
   }
 
   return (
@@ -107,7 +108,8 @@ export default function() {
           <input type='text' placeholder='Email' ref={email} onChange={() => isEmailValid(email)} />
           <input type='password' placeholder='Password' ref={password} onChange={() => isPasswordValid(password)} />
           <input type='password' placeholder='Confirm Password' ref={passwordConfirm} onChange={() => isPasswordConfirmValid(password, passwordConfirm)} />
-          <div className={styles.buttonContainer}>
+          <div className={styles.belowFields}>
+            <span>{ error }</span>
             <button className={styles.signUpButton} type='submit'>Sign Up</button>
           </div>
         </form>
