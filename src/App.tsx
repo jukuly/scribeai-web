@@ -18,13 +18,13 @@ export default function () {
         setTop(false);
       }
     }
-    const unsub = onAuthStateChanged(authInstance, user => {
+    const unsubAuth = onAuthStateChanged(authInstance, user => {
       setUser(user);
     });
 
     return () => {
       window.onscroll = null;
-      unsub();
+      unsubAuth();
     }
   }, [])
   
@@ -34,7 +34,7 @@ export default function () {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home top={top} />} />
-          <Route path='/signUp' element={<SignUp />} />
+          <Route path='/signUp' element={<SignUp user={user} />} />
         </Routes>
       </BrowserRouter>
     </>

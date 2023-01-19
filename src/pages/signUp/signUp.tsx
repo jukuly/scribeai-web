@@ -1,6 +1,7 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, User, UserCredential } from 'firebase/auth';
+import { doc, setDoc } from 'firebase/firestore';
 import { RefObject, useRef, useState } from 'react';
-import { authInstance } from '../../firebase';
+import { authInstance, firestoreInstance } from '../../firebase';
 import styles from './signUp.module.scss';
 
 function isEmailValid(emailRef: RefObject<HTMLInputElement>): boolean {
@@ -35,7 +36,7 @@ function isPasswordConfirmValid(passwordRef: RefObject<HTMLInputElement>, passwo
   }
 }
 
-export default function() {
+export default function({ user }: { user: User | null }) {
   const [error, setError] = useState<string>('');
 
   const name = useRef<HTMLInputElement>(null);
@@ -84,7 +85,13 @@ export default function() {
     }
 
     createUserWithEmailAndPassword(authInstance, email.current?.value!, email.current?.value!)
-      .then(() => setError(''))
+      .then((userCredential: UserCredential) => {
+        setError('');
+        setDoc(doc(firestoreInstance, `user-data-public/${userCredential.user.uid}`), { // <= make this a cloud function
+          'name': name.current?.value!,
+          'lastName': lastName.current?.value!
+        });
+      })
       .catch(err => {
         if (err.code === 'auth/email-already-in-use') {
           setError('This email is already taken');
