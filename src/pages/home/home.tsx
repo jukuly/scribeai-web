@@ -75,6 +75,11 @@ export default function({ top } : { top: boolean }) {
             "ScribeAI is so cool!!!!!!"
           </div>
         </section>
+        <section className={styles.fourthSection}>
+          <div className={styles.content}>
+            Download
+          </div>
+        </section>
       </main>
       {
         top &&

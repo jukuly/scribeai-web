@@ -1,0 +1,93 @@
+.signUp {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  overflow: hidden;
+  padding: 0 2rem;
+}
+
+.gradientCircle {
+  --size: 1300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(calc(-50% + 4.5rem + 5px + 15ch), calc(-50% + 4.5rem + 5px + 15ch));
+  background-image: radial-gradient(circle calc(var(--size) / 2), #9B89B3, #5c21ff, transparent);
+  background-size: var(--size) var(--size);
+  width: var(--size);
+  height: var(--size);
+  opacity: 20%;
+  z-index: -1;
+}
+
+.box {
+  font-weight: 300;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 25px rgba($color: #000000, $alpha: 0.1);
+  border-radius: 5px;
+  padding: 3rem;
+
+  h1 {
+    font-weight: 300;
+    font-size: 1.5rem;
+    background-image: linear-gradient(90deg, #5c21ff, #9B89B3);
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 2rem;
+  }
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .name, .lastName {
+    max-width: 15ch;
+  }
+  input {
+    padding: 0.5rem 0.75rem;
+    border: none;
+    border-bottom: solid 1px #8e8e8e;
+  }
+  input:focus {
+    outline: none;
+    border-bottom: solid 1px #5c21ff;
+  }
+  input:not(.name, .lastName), .buttonContainer {
+    grid-column: span 2;
+  }
+
+  .buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .signUpButton {
+    background-color: rgb(255, 255, 255);
+    color: #000000;
+    padding: 0.5rem 0.75rem;
+    border: solid 1px #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: border-color 150ms;
+  }
+  .signUpButton:hover {
+    border: solid 1px #5c21ff;
+  }
+  .signUpButton:active {
+    border: solid 2px #5c21ff;
+    padding: calc(0.5rem - 1px) calc(0.75rem - 1px);
+  }
+  input.error {
+    border-bottom: solid 1px #ff0000;
+  }
+}
+
+@media (max-width: calc(13rem + 30ch + 10px)) {
+  .box {
+    width: 100%;
+  }
+  .box .name, .box .lastName {
+    grid-column: span 2;
+    max-width: none;
+  }
+}

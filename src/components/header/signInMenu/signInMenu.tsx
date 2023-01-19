@@ -37,8 +37,8 @@ export default function() {
           <button className={styles.signInButton} type='submit'>Sign In</button>
         </div>
       </form>
-      <span className={styles.signUp}>No account yet? <span className={styles.underlined} onClick={() => {}}>Sign up</span> instead</span>
-      <span className={styles.forgot}><span className={styles.underlined} onClick={() => {}}>I forgot my password</span></span>
+      <span className={styles.signUp}>No account yet? <a className={styles.underlined} href='/signUp'>Sign up</a> instead</span>
+      <span className={styles.forgot}><a className={styles.underlined} href='/download'>I forgot my password</a></span>
     </div>
   );
 }

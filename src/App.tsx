@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/header/header';
 import Home from './pages/home/home';
-import Download from './pages/download/download';
+import SignUp from './pages/signUp/signUp';
 import { useState, useEffect } from 'react';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { authInstance } from './firebase';
@@ -34,7 +34,7 @@ export default function () {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home top={top} />} />
-          <Route path='/download' element={<Download />} />
+          <Route path='/signUp' element={<SignUp />} />
         </Routes>
       </BrowserRouter>
     </>
