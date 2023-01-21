@@ -52,7 +52,7 @@ export default function({ user }: { user: User | null }) {
 
   function signUp(): void {
 
-    //Valid the inputs (must have completed every fields and email must be valid, password & password confirm must be the same)
+    //Validate the inputs (must have completed every fields and email must be valid, password & password confirm must be the same)
     let valid = true;
     if (!name.current?.value) {
       name.current?.setAttribute('class', `${styles.name} ${styles.error}`); 
@@ -104,19 +104,6 @@ export default function({ user }: { user: User | null }) {
         setError(err.message);
       }
     });
-
-    /*createUserWithEmailAndPassword(authInstance, email.current?.value!, email.current?.value!)
-      .then(() => {
-        setError('');
-      })
-      .then(() => navigate(-1))
-      .catch(err => {
-        if (err.code === 'auth/email-already-in-use') {
-          setError('This email is already taken');
-        } else {
-          setError(err.code);
-        }
-      });*/
   }
 
   return (

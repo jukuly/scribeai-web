@@ -5,6 +5,7 @@ import SignUp from './pages/signUp/signUp';
 import { useState, useEffect } from 'react';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { authInstance } from './firebase';
+import ForgotPassword from './pages/forgotPassword/forgotPassword';
 
 export default function () {
   const [top, setTop] = useState<boolean>(true);
@@ -35,6 +36,7 @@ export default function () {
         <Routes>
           <Route path='/' element={<Home top={top} />} />
           <Route path='/signUp' element={<SignUp user={user} />} />
+          <Route path='/forgotPassword' element={<ForgotPassword />} />
         </Routes>
       </BrowserRouter>
     </>

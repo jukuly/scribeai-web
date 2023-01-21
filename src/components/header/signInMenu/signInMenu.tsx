@@ -38,7 +38,7 @@ export default function() {
         </div>
       </form>
       <span className={styles.signUp}>No account yet? <a className={styles.underlined} href='/signUp'>Sign up</a> instead</span>
-      <span className={styles.forgot}><a className={styles.underlined} href='/download'>I forgot my password</a></span>
+      <span className={styles.forgot}><a className={styles.underlined} href='/forgotPassword'>I forgot my password</a></span>
     </div>
   );
 }
