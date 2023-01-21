@@ -12,7 +12,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(calc(-50% + 4.5rem + 5px + 15ch), calc(-50% + 4.5rem + 5px + 15ch));
+  transform: translate(calc(-50% + 3rem + 5px + 15ch), calc(-50% + 13rem));
   background-image: radial-gradient(circle calc(var(--size) / 2), #9B89B3, #5c21ff, transparent);
   background-size: var(--size) var(--size);
   width: var(--size);

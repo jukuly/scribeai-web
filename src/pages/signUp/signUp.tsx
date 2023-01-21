@@ -1,8 +1,11 @@
-import { createUserWithEmailAndPassword, User, UserCredential } from 'firebase/auth';
-import { doc, setDoc } from 'firebase/firestore';
+import { createUserWithEmailAndPassword, User } from 'firebase/auth';
+import { httpsCallable } from 'firebase/functions';
 import { RefObject, useRef, useState } from 'react';
-import { authInstance, firestoreInstance } from '../../firebase';
+import { useNavigate } from 'react-router-dom';
+import { authInstance, functionsInstance } from '../../firebase';
 import styles from './signUp.module.scss';
+
+const newUser = httpsCallable(functionsInstance, 'newUser');
 
 function isEmailValid(emailRef: RefObject<HTMLInputElement>): boolean {
   if (!emailRef.current?.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
@@ -45,6 +48,8 @@ export default function({ user }: { user: User | null }) {
   const password = useRef<HTMLInputElement>(null);
   const passwordConfirm = useRef<HTMLInputElement>(null);
 
+  const navigate = useNavigate();
+
   function signUp(): void {
 
     //Valid the inputs (must have completed every fields and email must be valid, password & password confirm must be the same)
@@ -84,21 +89,34 @@ export default function({ user }: { user: User | null }) {
       return;
     }
 
-    createUserWithEmailAndPassword(authInstance, email.current?.value!, email.current?.value!)
-      .then((userCredential: UserCredential) => {
+    newUser({
+        email: email.current?.value,
+        password: password.current?.value,
+        name: name.current?.value,
+        lastName: lastName.current?.value
+    }).then(() => {
+      setError('');
+      navigate(-1);
+    }).catch(err => {
+      if (err.message === 'auth/email-already-in-use' || err.message === 'auth/email-already-exists') {
+        setError('This email is already taken');
+      } else {
+        setError(err.message);
+      }
+    });
+
+    /*createUserWithEmailAndPassword(authInstance, email.current?.value!, email.current?.value!)
+      .then(() => {
         setError('');
-        setDoc(doc(firestoreInstance, `user-data-public/${userCredential.user.uid}`), { // <= make this a cloud function
-          'name': name.current?.value!,
-          'lastName': lastName.current?.value!
-        });
       })
+      .then(() => navigate(-1))
       .catch(err => {
         if (err.code === 'auth/email-already-in-use') {
           setError('This email is already taken');
         } else {
           setError(err.code);
         }
-      });
+      });*/
   }
 
   return (
