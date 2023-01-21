@@ -1,0 +1,24 @@
+.footerList {
+  padding: 1rem;
+  background-color: #5c21ff;
+  box-shadow: 0 0 25px rgba($color: #000000, $alpha: 0.2);
+  z-index: 99999;
+  color: #ffffff;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  a {
+    text-decoration: none;
+    color: #ffffff;
+    background-image: linear-gradient(#ffffff, #ffffff);
+    background-size: 0% 0.075em;
+    background-position-y: 100%;
+    background-position-x: 0%;
+    background-repeat: no-repeat;
+    transition: background-size 150ms ease-in-out;
+  }
+  a:hover {
+    background-size: 100% 0.075em;
+  }
+}
