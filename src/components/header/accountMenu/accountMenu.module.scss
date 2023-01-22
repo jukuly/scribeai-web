@@ -16,7 +16,7 @@
   border-radius: 5px;
   padding: 5px;
 
-  li {
+  .item {
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -26,10 +26,14 @@
     border-radius: 5px;
     cursor: pointer;
   }
-  li:hover {
+  .item:hover {
     background-color: #eeeeee;
   }
-  li:active {
+  .item:active {
     background-color: #dddddd;
+  }
+  a {
+    text-decoration: none;
+    color: #000000;
   }
 }

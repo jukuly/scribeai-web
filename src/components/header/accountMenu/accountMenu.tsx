@@ -8,12 +8,14 @@ export default function() {
     <div className={styles.box}>
       <ul>
         <li>
-          <span className='material-symbols-outlined person'>
-            person
-          </span>
-          Profile
+          <a className={styles.item} href='/profile' draggable='false'>
+            <span className='material-symbols-outlined person'>
+              person
+            </span>
+            Profile
+          </a>          
         </li>
-        <li onClick={() => signOut(authInstance)}>
+        <li className={styles.item} onClick={() => signOut(authInstance)}>
           <span className='material-symbols-outlined'>
             logout
           </span>

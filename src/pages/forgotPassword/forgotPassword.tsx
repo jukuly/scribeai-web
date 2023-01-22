@@ -1,11 +1,8 @@
 import { sendPasswordResetEmail } from 'firebase/auth';
-import { httpsCallable } from 'firebase/functions';
 import { RefObject, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { authInstance, functionsInstance } from '../../firebase';
+import { authInstance } from '../../firebase';
 import styles from './forgotPassword.module.scss';
-
-const forgotPassword = httpsCallable(functionsInstance, 'forgotPassword');
 
 function isEmailValid(emailRef: RefObject<HTMLInputElement>): boolean {
   if (!emailRef.current?.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {

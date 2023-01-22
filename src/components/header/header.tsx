@@ -17,12 +17,12 @@ export default function({ user }: { user: User | null}) {
     <nav className={styles.header}>
       <ul className={styles.headerList}>
         <li className={`${styles.home} ${styles.headerListItem}`}>
-          <a href='/'>
+          <a href='/' draggable='false'>
             ScribeAI.
           </a>
         </li>
         <li className={`${styles.download} ${styles.headerListItem}`}>
-          <a href='/download'>
+          <a href='/download' draggable='false'>
             <button className={styles.headerButton}>
               Download
             </button>
