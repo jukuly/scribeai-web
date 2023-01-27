@@ -29,7 +29,7 @@ export default function({ user }: { user: User | null}) {
           </a>
         </li>
         <li className={`${styles.account} ${styles.headerListItem}`}>
-          <button className={styles.headerButton} onClick={() => setAccountClicked(accountClicked => true)}>
+          <button className={styles.headerButton} onClick={() => setAccountClicked(true)}>
             { 
               user ? 'My Account' : 'Sign In' 
             }

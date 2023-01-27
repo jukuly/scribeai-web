@@ -15,11 +15,13 @@ export default function() {
             Profile
           </a>          
         </li>
-        <li className={styles.item} onClick={() => signOut(authInstance)}>
-          <span className='material-symbols-outlined'>
-            logout
-          </span>
-          Sign Out
+        <li>
+          <a className={styles.item} href='/' draggable='false' onClick={() => signOut(authInstance)}>
+            <span className='material-symbols-outlined'>
+              logout
+            </span>
+            Sign Out
+          </a>
         </li>
       </ul>
     </div>

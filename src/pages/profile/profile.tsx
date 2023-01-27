@@ -35,8 +35,10 @@ export default function({ user }: { user: User | null }) {
   const passwordRef = useRef<HTMLInputElement>(null);
   const passwordConfirm = useRef<HTMLInputElement>(null);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
-    setDisplayName(user?.displayName!);
+    if (user) setDisplayName(user?.displayName!);
   }, [user])
 
   function saveChanges() {
@@ -60,7 +62,9 @@ export default function({ user }: { user: User | null }) {
         if (err.code == 'auth/requires-recent-login') {
           const currentPassword = prompt('Please enter your current password');
           reauthenticateWithCredential(user, EmailAuthProvider.credential(user.email!, currentPassword!))
-          .then(() => updatePassword(user, password))
+          .then(() => {
+            updatePassword(user, password);
+          })
           .catch(e => setError(e.code));          
         } else {
           setError(err.code)
@@ -69,6 +73,7 @@ export default function({ user }: { user: User | null }) {
     }
     setEditName(false);
     setEditPassword(false);
+    setError('');
   }
 
   return (
