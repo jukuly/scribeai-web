@@ -9,6 +9,8 @@ import ForgotPassword from './pages/forgotPassword/forgotPassword';
 import Profile from './pages/profile/profile';
 import AuthGuard from './components/authGuard/authGuard';
 import TermsConditions from './pages/termsConditions/termsConditions';
+import Pricing from './pages/pricing/pricing';
+import Download from './pages/download/download';
 
 export default function () {
   const [top, setTop] = useState<boolean>(true);
@@ -41,6 +43,8 @@ export default function () {
           <Route path='/sign-up' element={<SignUp user={user} />} />
           <Route path='/forgot-password' element={<ForgotPassword />} />
           <Route path='/terms-conditions' element={<TermsConditions />} />
+          <Route path='/pricing' element={<Pricing />} />
+          <Route path='/download' element={<Download />} />
           <Route path='/profile' element={<AuthGuard isSignedIn={!!user}><Profile user={user} /></AuthGuard>} />
         </Routes>
       </BrowserRouter>
