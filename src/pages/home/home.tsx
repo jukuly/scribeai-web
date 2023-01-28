@@ -73,7 +73,21 @@ export default function({ top } : { top: boolean }) {
         </section>
         <section className={styles.thirdSection}>
           <div className={styles.content}>
-            "ScribeAI is so cool!!!!!!"
+            <h1>
+              Revolutionizing writing all around the world
+            </h1>
+            <div className={styles.quotes}>
+              <span className={`${styles.quoteMark} material-symbols-outlined`}>format_quote</span>
+              <p className={styles.quoteText}>
+                "ScribeAI changed my life from spending hours every day thinking how to write a text to
+                being able to just think about its content."
+              </p>
+              <div className={styles.separation}></div>
+              <p className={styles.quoteText}>
+                "ScribeAI changed my life from spending hours every day thinking how to write a text to
+                being able to just think about its content."
+              </p>
+            </div>
           </div>
         </section>
         <section className={styles.fourthSection}>

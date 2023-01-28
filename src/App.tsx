@@ -8,6 +8,7 @@ import { authInstance } from './firebase';
 import ForgotPassword from './pages/forgotPassword/forgotPassword';
 import Profile from './pages/profile/profile';
 import AuthGuard from './components/authGuard/authGuard';
+import TermsConditions from './pages/termsConditions/termsConditions';
 
 export default function () {
   const [top, setTop] = useState<boolean>(true);
@@ -37,8 +38,9 @@ export default function () {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home top={top} />} />
-          <Route path='/signUp' element={<SignUp user={user} />} />
-          <Route path='/forgotPassword' element={<ForgotPassword />} />
+          <Route path='/sign-up' element={<SignUp user={user} />} />
+          <Route path='/forgot-password' element={<ForgotPassword />} />
+          <Route path='/terms-conditions' element={<TermsConditions />} />
           <Route path='/profile' element={<AuthGuard isSignedIn={!!user}><Profile user={user} /></AuthGuard>} />
         </Routes>
       </BrowserRouter>

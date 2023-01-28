@@ -37,8 +37,8 @@ export default function() {
           <button className={styles.signInButton} type='submit'>Sign In</button>
         </div>
       </form>
-      <span className={styles.signUp}>No account yet? <a className={styles.underlined} href='/signUp'>Sign up</a> instead</span>
-      <span className={styles.forgot}><a className={styles.underlined} href='/forgotPassword'>I forgot my password</a></span>
+      <span className={styles.signUp}>No account yet? <a className={styles.underlined} href='/sign-up'>Sign up</a> instead</span>
+      <span className={styles.forgot}><a className={styles.underlined} href='/forgot-password'>I forgot my password</a></span>
     </div>
   );
 }

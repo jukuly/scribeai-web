@@ -29,7 +29,6 @@
   padding: 3rem;
 
   h1 {
-    font-weight: 300;
     font-size: 1.5rem;
     color: #5c21ff;
     margin-bottom: 2rem;
@@ -40,7 +39,7 @@
     gap: 10px;
   }
   .name, .lastName {
-    max-width: 15ch;
+    max-width: 9rem;
   }
   input {
     padding: 0.5rem 0.75rem;
@@ -89,7 +88,7 @@
   }
 }
 
-@media (max-width: calc(13rem + 30ch + 10px)) {
+@media (max-width: calc(28rem + 10px)) {
   .box {
     width: 100%;
   }

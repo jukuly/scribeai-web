@@ -1,6 +1,5 @@
 import { EmailAuthProvider, reauthenticateWithCredential, updatePassword, updateProfile, User } from 'firebase/auth';
 import { RefObject, useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import styles from './profile.module.scss';
 
 function isPasswordValid(passwordRef: RefObject<HTMLInputElement>): boolean {
@@ -34,8 +33,6 @@ export default function({ user }: { user: User | null }) {
 
   const passwordRef = useRef<HTMLInputElement>(null);
   const passwordConfirm = useRef<HTMLInputElement>(null);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (user) setDisplayName(user?.displayName!);
@@ -116,7 +113,9 @@ export default function({ user }: { user: User | null }) {
               <span>
                 Confirm Password:
               </span>
-              <input type='password' ref={passwordConfirm} disabled={!editPassword} onChange={() => isPasswordConfirmValid(passwordRef, passwordConfirm)} />
+              <div className={styles.inputGroup}>
+                <input type='password' ref={passwordConfirm} disabled={!editPassword} onChange={() => isPasswordConfirmValid(passwordRef, passwordConfirm)} />
+              </div>
             </>
           }
           <div className={styles.belowFields}>

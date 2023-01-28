@@ -20,7 +20,7 @@ export default function() {
         </a>
       </li>
       <li>
-        <a href='/terms'>
+        <a href='/terms-conditions'>
           Terms and Conditions
         </a>
       </li>

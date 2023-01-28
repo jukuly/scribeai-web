@@ -35,7 +35,6 @@
     align-items: center;
   }
   h1 {
-    font-weight: 300;
     font-size: 1.5rem;
     color: #5c21ff;
     margin-bottom: 2rem;
@@ -44,10 +43,14 @@
     padding: 0.5rem 0.75rem;
     border: none;
     border-bottom: solid 1px #8e8e8e;
+    width: 13rem;
   }
   input:focus {
     outline: none;
     border-bottom: solid 1px #5c21ff;
+  }
+  input:disabled {
+    background-color: #ffffff;
   }
 
   .inputGroup {
@@ -106,11 +109,16 @@
   }
 }
 
-@media (max-width: calc(14rem + 40ch + 10px)) {
+@media (max-width: calc(32.75rem + 10px)) {
   .box {
     width: 100%;
-    input, span {
+    
+    .inputGroup, span {
       grid-column: span 2;
+      max-width: none;
+      input {
+        width: 100%;
+      }
     }
   }
 }
