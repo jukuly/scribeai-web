@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import DownArrow from '../../components/downArrow/downArrow';
-import Footer from '../../components/footer/footer';
 import AppSpinner from './appSpinner/appSpinner';
 import styles from './home.module.scss';
 import ShowOff from './showOff/showOff';
@@ -111,7 +110,6 @@ export default function({ top } : { top: boolean }) {
         top &&
         <DownArrow />
       }
-      <Footer />
     </>
   );
 }

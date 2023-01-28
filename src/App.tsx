@@ -11,6 +11,7 @@ import AuthGuard from './components/authGuard/authGuard';
 import TermsConditions from './pages/termsConditions/termsConditions';
 import Pricing from './pages/pricing/pricing';
 import Download from './pages/download/download';
+import Footer from './components/footer/footer';
 
 export default function () {
   const [top, setTop] = useState<boolean>(true);
@@ -48,6 +49,7 @@ export default function () {
           <Route path='/profile' element={<AuthGuard isSignedIn={!!user}><Profile user={user} /></AuthGuard>} />
         </Routes>
       </BrowserRouter>
+      <Footer />
     </>
   );
 }

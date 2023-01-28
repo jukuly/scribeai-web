@@ -1,8 +1,8 @@
-import { createUserWithEmailAndPassword, User } from 'firebase/auth';
+import { User } from 'firebase/auth';
 import { httpsCallable } from 'firebase/functions';
 import { RefObject, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { authInstance, functionsInstance } from '../../firebase';
+import { functionsInstance } from '../../firebase';
 import styles from './signUp.module.scss';
 
 const newUser = httpsCallable(functionsInstance, 'newUser');
