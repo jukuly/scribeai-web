@@ -3,6 +3,7 @@ main {
   position: relative;
   margin: auto;
   width: 100%;
+  font-weight: 300;
 }
 
 .content {
@@ -37,7 +38,6 @@ main {
 
   .title {
     margin-bottom: 2rem;
-    font-weight: 300;
   }
   
   .gradientText {
@@ -62,8 +62,10 @@ main {
 section {
   h1 {
     font-size: clamp(2rem, 2rem + 1.33vw, 3rem);
-    font-weight: 300;
     text-align: center;
+  }
+  h2 {
+    font-size: clamp(1rem, 1rem + 0.67vw, 1.5rem);
   }
   overflow: hidden;
 }
@@ -89,10 +91,9 @@ section {
         margin-left: 1ch;
         margin-top: 1rem;
         list-style-type: '- ';
-        font-size: clamp(1rem, 1rem + 0.93vw, 1.5rem);
-        font-weight: 300;
+        font-size: clamp(1rem, 1rem + 0.67vw, 1.5rem);
         p {
-          font-size: clamp(0.9rem, 0.9rem + 0.6875vw, 1.1rem);
+          font-size: clamp(0.9rem, 0.9rem + 0.268vw, 1.1rem);
         }
       }
     }
@@ -138,8 +139,6 @@ section {
   }
 
   h2 {
-    font-size: clamp(1rem, 1rem + 0.67vw, 1.5rem);
-    font-weight: 300;
     margin-bottom: clamp(0rem, 2.67vw, 2rem);
   }
 }
@@ -149,33 +148,29 @@ section {
   color: #ffffff;
   padding: clamp(1.5rem, 1.5rem + 6vw, 6rem) 0;
 
-  .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: clamp(0.5rem, 0.5rem + 2vw, 2rem);
+  h1 {
+    margin-bottom: clamp(0.5rem, 0.5rem + 2vw, 2rem);
+    text-align: center;
   }
   .quotes {
     position: relative;
     display: flex;
     align-items: center;
-    gap: clamp(0.5rem, 0.5rem + 6vw, 6rem);
+    gap: clamp(0.5rem, 0.5rem + 7.33rem, 6rem);
   }
   .separation {
     height: 15rem;
-    width: 3px;
+    min-width: 1px;
     background-image: linear-gradient(transparent, #ffffff, transparent);
   }
   .quoteText {
     font-size: clamp(1rem, 1rem + 0.67vw, 1.5rem);
-    font-weight: 300;
     text-align: center;
   }
   .quoteMark {
     position: absolute;
     top: -2.5rem;
-    right: 0rem;
+    right: 0;
     opacity: 30%;
     font-size: 15rem;
     font-variation-settings:
@@ -195,6 +190,41 @@ section {
 }
 
 .fourthSection {
-  height: 40rem;
-  background-color: #ffffff;
+  padding: clamp(1.5rem, 1.5rem + 6vw, 6rem) 0;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(0.5rem, 0.5rem + 2vw, 2rem);
+  }
+
+  .gradientCircle {
+    --size: 750px;
+    top: -5rem;
+    right: 5rem;
+  }
+
+  .button:not(:last-child) {
+    margin-right: 10px;
+  }
+  .button {
+    font-size: clamp(1rem, 1rem + 0.67vw, 1.5rem);
+    color:#ffffff;
+    width: 7em;
+    background-color: #5c21ff;
+    padding: 0.5em 0.75em;
+    border: solid 1px #5c21ff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 300ms, border-color 300ms, color 300ms;
+  }
+  .button:hover {
+    color: #5c21ff;
+    background-color: transparent;
+  }
+  .button:active {
+    padding: calc(0.5em - 1px) calc(0.75em - 1px);
+    border-width: 2px;
+  }
 }

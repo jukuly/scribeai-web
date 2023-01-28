@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import DownArrow from '../../components/downArrow/downArrow';
 import Footer from '../../components/footer/footer';
 import AppSpinner from './appSpinner/appSpinner';
@@ -5,6 +6,8 @@ import styles from './home.module.scss';
 import ShowOff from './showOff/showOff';
 
 export default function({ top } : { top: boolean }) {
+  const navigate = useNavigate();
+
   return (
     <>
       <main>
@@ -92,7 +95,15 @@ export default function({ top } : { top: boolean }) {
         </section>
         <section className={styles.fourthSection}>
           <div className={styles.content}>
-            Download
+            <div className={styles.gradientCircle}></div>
+            <h1>Start Now</h1>
+            <h2>
+              Get a 15% discount on the first month
+            </h2>
+            <div>
+              <button className={styles.button} onClick={() => navigate('/download')}>Download</button>
+              <button className={styles.button} onClick={() => navigate('/sign-up')}>Sign Up</button>
+            </div>
           </div>
         </section>
       </main>
