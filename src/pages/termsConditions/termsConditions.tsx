@@ -6,7 +6,7 @@ export default function() {
     <>
       <div className={styles.termsConditions}>
         <div className={styles.gradientCircle}></div>
-        <div className={styles.box}>
+        <main className={styles.box}>
           <h1>Terms and Conditions</h1>
           <h2>Section 1</h2>
           <p>
@@ -48,7 +48,7 @@ export default function() {
           <p>
             Turpis egestas pretium aenean pharetra. Diam sit amet nisl suscipit. Mi ipsum faucibus vitae aliquet. Imperdiet nulla malesuada pellentesque elit eget gravida cum sociis. Augue eget arcu dictum varius duis at. Orci nulla pellentesque dignissim enim sit. Tristique magna sit amet purus gravida quis. Etiam non quam lacus suspendisse faucibus interdum posuere. Lacus laoreet non curabitur gravida arcu ac. Risus nullam eget felis eget nunc lobortis mattis aliquam. Et malesuada fames ac turpis egestas integer eget aliquet nibh. Facilisi nullam vehicula ipsum a.
           </p>
-        </div>
+        </main>
       </div>
       <Footer />
     </>

@@ -2,9 +2,9 @@
   position: relative;
   display: grid;
   place-items: center;
-  padding: 0 2rem;
-  overflow: hidden;
-  height: 100vh;
+  padding: 6.5rem 2rem 2rem 2rem;
+  overflow-x: hidden;
+  height: calc(100vh - 4.5rem);
 }
 
 .gradientCircle {
@@ -21,22 +21,59 @@
   z-index: -1;
 }
 
-.box {
+.plans {
   font-weight: 300;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0 0 25px rgba($color: #000000, $alpha: 0.1);
-  border-radius: 5px;
-  padding: 3rem;
-  max-width: 1000px;
+  display: flex;
+  gap: 1rem;
 
   h1 {
     font-size: 1.5rem;
     color: #5c21ff;
     margin-bottom: 2rem;
   }
+}
 
-  h2 {
-    font-size: 1.1rem;
-    margin-bottom: 0.3rem;
+.box {
+  flex: 1;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 25px rgba($color: #000000, $alpha: 0.1);
+  border-radius: 5px;
+  padding: 3rem;
+  max-width: 20rem;
+  display: flex;
+  flex-direction: column;
+  ul {
+    list-style-type: none;
+    * {
+      margin-bottom: 1rem;
+    }
+  }
+  .smallText {
+    font-size: 0.75rem;
+  }
+}
+
+.pro {
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.price {
+  margin-top: auto;
+  padding-top: 1rem;
+  font-size: 1.1rem;
+  text-align: right;
+  color: #5c21ff;
+}
+
+.crossed {
+  color: #000000;
+  text-decoration: line-through;
+}  
+
+@media (max-width: 40rem) {
+  .plans {
+    flex-direction: column;
   }
 }

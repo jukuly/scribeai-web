@@ -2,9 +2,9 @@
   position: relative;
   display: grid;
   place-items: center;
-  padding: 0 2rem;
-  overflow: hidden;
-  height: 100vh;
+  padding: 6.5rem 2rem 2rem 2rem;
+  overflow-x: hidden;
+  height: calc(100vh - 4.5rem);
 }
 
 .gradientCircle {

@@ -2,14 +2,14 @@
   position: relative;
   display: grid;
   place-items: center;
-  height: 100vh;
-  overflow: hidden;
-  padding: 0 2rem;
+  padding: 6.5rem 2rem 2rem 2rem;
+  overflow-x: hidden;
+  height: calc(100vh - 4.5rem);
 }
 
 .gradientCircle {
   --size: 1300px;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(calc(-50% + 3rem + 15ch), calc(-50% + 10rem));

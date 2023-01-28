@@ -10,7 +10,7 @@ export default function({ top } : { top: boolean }) {
 
   return (
     <>
-      <main>
+      <main className={styles.home}>
         <header className={styles.hero}>
           <div className={styles.content}>
             <div className={styles.gradientCircle}></div>
@@ -98,7 +98,7 @@ export default function({ top } : { top: boolean }) {
             <div className={styles.gradientCircle}></div>
             <h1>Start Now</h1>
             <h2>
-              Get a 15% discount on the first month
+              Something to incentivize
             </h2>
             <div>
               <button className={styles.button} onClick={() => navigate('/download')}>Download</button>

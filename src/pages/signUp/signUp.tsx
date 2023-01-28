@@ -109,7 +109,7 @@ export default function({ user }: { user: User | null }) {
   return (
     <div className={styles.signUp}>
       <div className={styles.gradientCircle}></div>
-      <div className={styles.box}>
+      <main className={styles.box}>
         <h1>Sign Up</h1>
         <form onSubmit={event => {
           event.preventDefault();
@@ -125,7 +125,7 @@ export default function({ user }: { user: User | null }) {
             <button className={styles.signUpButton} type='submit'>Sign Up</button>
           </div>
         </form>
-      </div>
+      </main>
     </div>
   );
 }

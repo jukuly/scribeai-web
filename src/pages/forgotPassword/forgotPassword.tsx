@@ -52,7 +52,7 @@ export default function() {
   return (
     <div className={styles.resetPassword}>
       <div className={styles.gradientCircle}></div>
-      <div className={styles.box}>
+      <main className={styles.box}>
         <h1>Reset your password</h1>
         <form onSubmit={event => {
           event.preventDefault();
@@ -64,7 +64,7 @@ export default function() {
             <button className={styles.resetButton} type='submit'>Send</button>
           </div>
         </form>
-      </div>
+      </main>
     </div>
   );
 }

@@ -76,7 +76,7 @@ export default function({ user }: { user: User | null }) {
   return (
     <div className={styles.profile}>
       <div className={styles.gradientCircle}></div>
-      <div className={styles.box}>
+      <main className={styles.box}>
         <h1>Profile</h1>
         <form onSubmit={event => {
           event.preventDefault();
@@ -123,7 +123,7 @@ export default function({ user }: { user: User | null }) {
             <button className={styles.saveButton} type='submit'>Save changes</button>
           </div>
         </form>
-      </div>
+      </main>
     </div>
   );
 }
