@@ -97,7 +97,7 @@ export default function({ top } : { top: boolean }) {
             <div className={styles.gradientCircle}></div>
             <h1>Start Now</h1>
             <h2>
-              Something to incentivize
+              Get a five days free trial by signing up now
             </h2>
             <div>
               <button className={styles.button} onClick={() => navigate('/download')}>Download</button>
