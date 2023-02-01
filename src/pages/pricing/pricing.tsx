@@ -6,7 +6,7 @@ export default function() {
       <div className={styles.gradientCircle}></div>
       <main className={styles.plans}>
         <div className={styles.box}>
-          <h1>Standard</h1>
+          <h1>Every plan includes</h1>
           <ul>
             <li>
               Text completion
@@ -24,15 +24,23 @@ export default function() {
               Translation
             </li>
           </ul>
-          <span className={styles.smallText}>*500 requests/day</span>
+        </div>
+        <div className={styles.box}>
+          <h1>Basic</h1>
+          <span className={styles.access}>50 requests/day</span>
+          <div className={styles.price}>$4.99</div>
+        </div>
+        <div className={styles.box}>
+          <h1>Standard</h1>
+          <span className={styles.access}>500 requests/day</span>
           <div className={styles.price}>
-            <div className={styles.crossed}>9.99</div>
-            -20% $7.99
+            <div className={styles.crossed}>14.99</div>
+            -30% $9.99
           </div>
         </div>
         <div className={styles.box}>
           <h1>Pro</h1>
-          <div className={styles.pro}>Unlimited access to everything in the Standard tier</div>
+          <span className={styles.access}>Unlimited access</span>
           <div className={styles.price}>$24.99</div>
         </div>
       </main>
