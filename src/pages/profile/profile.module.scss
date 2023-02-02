@@ -107,6 +107,28 @@
   input.error {
     border-bottom: solid 1px #ff0000;
   }
+
+  .plan {
+    border-radius: 5px;
+    border: solid #5c21ff 1px;
+    font-size: 1.1rem;
+    padding: 1.5rem;
+    width: 100%;
+    margin-bottom: 2rem;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: background-color 300ms, border-color 300ms, color 300ms;
+  }
+  .plan:hover {
+    color: #ffffff;
+    background-color: #5c21ff;
+  }
+  .plan:active {
+    padding: calc(1.5rem - 1px) calc(1.5rem - 1px);
+    color: #000000;
+    background-color: #ffffff;
+    border-width: 2px;
+  }
 }
 
 @media (max-width: calc(32.75rem + 10px)) {

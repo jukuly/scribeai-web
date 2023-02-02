@@ -164,6 +164,7 @@ section {
     background-image: linear-gradient(transparent, #ffffff, transparent);
   }
   .quoteText {
+    flex: 1;
     font-size: clamp(1rem, 1rem + 0.67vw, 1.5rem);
     text-align: center;
   }

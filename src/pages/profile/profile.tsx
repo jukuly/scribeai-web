@@ -1,6 +1,9 @@
 import { EmailAuthProvider, reauthenticateWithCredential, updatePassword, updateProfile, User } from 'firebase/auth';
 import { RefObject, useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './profile.module.scss';
+
+import usePremiumStatus from '../../stripe/usePremiumStatus';
 
 function isPasswordValid(passwordRef: RefObject<HTMLInputElement>): boolean {
 
@@ -34,6 +37,10 @@ export default function({ user }: { user: User | null }) {
   const passwordRef = useRef<HTMLInputElement>(null);
   const passwordConfirm = useRef<HTMLInputElement>(null);
 
+  const navigate = useNavigate();
+
+  const isPremium = usePremiumStatus(user!);
+
   useEffect(() => {
     if (user) setDisplayName(user?.displayName!);
   }, [user])
@@ -56,7 +63,7 @@ export default function({ user }: { user: User | null }) {
       }
       updatePassword(user, password)
       .catch(err => {
-        if (err.code == 'auth/requires-recent-login') {
+        if (err.code === 'auth/requires-recent-login') {
           const currentPassword = prompt('Please enter your current password');
           reauthenticateWithCredential(user, EmailAuthProvider.credential(user.email!, currentPassword!))
           .then(() => {
@@ -78,6 +85,9 @@ export default function({ user }: { user: User | null }) {
       <div className={styles.gradientCircle}></div>
       <main className={styles.box}>
         <h1>Profile</h1>
+        <button className={styles.plan} onClick={() => navigate('/pricing')}>
+          {isPremium ? 'Basic' : 'Choose a plan'}
+        </button>
         <form onSubmit={event => {
           event.preventDefault();
           saveChanges();

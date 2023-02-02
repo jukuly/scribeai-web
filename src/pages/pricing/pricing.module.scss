@@ -1,7 +1,10 @@
 .pricing {
   position: relative;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
   padding: 6.5rem 2rem 2rem 2rem;
   overflow-x: hidden;
   min-height: 100vh;
@@ -32,13 +35,23 @@
     color: #5c21ff;
     margin-bottom: 2rem;
   }
+}
 
-  :first-child {
-    grid-column: span 3;
+.plans.clickable {
+  .box {
+    transition: 300ms;
+    cursor: pointer;
+  }
+  .box:hover {
+    box-shadow: 0 0 25px rgba($color: #000000, $alpha: 0.2);
+  }
+  .box:active {
+    box-shadow: 0 0 25px rgba($color: #000000, $alpha: 0.3);
   }
 }
 
 .box {
+  position: relative;
   background-color: rgb(255, 255, 255);
   box-shadow: 0 0 25px rgba($color: #000000, $alpha: 0.1);
   border-radius: 5px;
@@ -60,12 +73,11 @@
 .access {
   text-align: center;
   margin-top: auto;
-  margin-bottom: auto;
+  margin-bottom: 0;
 }
 
 .price {
-  margin-top: auto;
-  padding-top: 1rem;
+  padding-top: 2rem;
   font-size: 1.1rem;
   text-align: right;
   color: #5c21ff;
@@ -76,12 +88,17 @@
   text-decoration: line-through;
 }  
 
+.cancel {
+  text-align: center;
+  cursor: pointer;
+  transition: 300ms;
+}
+.cancel:hover {
+  color: #5c21ff;
+}
+
 @media (max-width: 40rem) {
   .plans {
     grid-template-columns: 1fr;
-
-    :first-child {
-      grid-column: span 1;
-    }
   }
 }

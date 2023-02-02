@@ -44,7 +44,7 @@ export default function () {
           <Route path='/sign-up' element={<SignUp user={user} />} />
           <Route path='/forgot-password' element={<ForgotPassword />} />
           <Route path='/terms-conditions' element={<TermsConditions />} />
-          <Route path='/pricing' element={<Pricing />} />
+          <Route path='/pricing' element={<Pricing user={user} />} />
           <Route path='/download' element={<Download />} />
           <Route path='/profile' element={<AuthGuard isSignedIn={!!user}><Profile user={user} /></AuthGuard>} />
         </Routes>

@@ -86,8 +86,8 @@ export default function({ top } : { top: boolean }) {
               </p>
               <div className={styles.separation}></div>
               <p className={styles.quoteText}>
-                "ScribeAI changed my life from spending hours every day thinking how to write a text to
-                being able to just think about its content."
+                "My writing process has been made so much smoother by ScribeAI with its powerful AI features.
+                Highly recommended for anyone looking to improve their writing!"
               </p>
             </div>
           </div>
