@@ -81,8 +81,8 @@ export default function({ top } : { top: boolean }) {
             <div className={styles.quotes}>
               <span className={`${styles.quoteMark} material-symbols-outlined`}>format_quote</span>
               <p className={styles.quoteText}>
-                "ScribeAI changed my life from spending hours every day thinking how to write a text to
-                being able to just think about its content."
+                "ScribeAI elevates my writing with its effortless AI features. A must-have tool for anyone
+                looking to improve their writing and ensure error-free work."
               </p>
               <div className={styles.separation}></div>
               <p className={styles.quoteText}>
