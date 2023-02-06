@@ -88,12 +88,14 @@
   text-decoration: line-through;
 }  
 
-.cancel {
+.linkBelow {
   text-align: center;
   cursor: pointer;
   transition: 300ms;
+  color: #000000;
+  text-decoration: none;
 }
-.cancel:hover {
+.linkBelow:hover {
   color: #5c21ff;
 }
 

@@ -1,8 +1,8 @@
 import { User } from 'firebase/auth';
 import { useState, useEffect } from 'react';
-import { authInstance } from "../firebase";
+import { authInstance } from '../firebase';
 
-export default function(user: User) {
+export default function(user: User | null) {
   const [premiumStatus, setPremiumStatus] = useState<string | null>(null);
 
   useEffect(() => {

@@ -39,7 +39,7 @@ export default function({ user }: { user: User | null }) {
 
   const navigate = useNavigate();
 
-  const isPremium = usePremiumStatus(user!);
+  const premiumStatus = usePremiumStatus(user);
 
   useEffect(() => {
     if (user) setDisplayName(user?.displayName!);
@@ -69,7 +69,10 @@ export default function({ user }: { user: User | null }) {
           .then(() => {
             updatePassword(user, password);
           })
-          .catch(e => setError(e.code));          
+          .catch(e => {
+            if (e.code === 'auth/wrong-password') setError('Password incorrect')
+            else setError(e.code)
+          });          
         } else {
           setError(err.code)
         }
@@ -86,7 +89,7 @@ export default function({ user }: { user: User | null }) {
       <main className={styles.box}>
         <h1>Profile</h1>
         <button className={styles.plan} onClick={() => navigate('/pricing')}>
-          {isPremium ? 'Basic' : 'Choose a plan'}
+          {premiumStatus ? premiumStatus.replace(/^./, premiumStatus[0].toUpperCase()) : 'Choose a plan'}
         </button>
         <form onSubmit={event => {
           event.preventDefault();
