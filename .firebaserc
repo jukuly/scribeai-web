@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "scribeai-production",
+    "scribeai-production": "scribeai-production"
+  },
+  "targets": {},
+  "etags": {}
+}
