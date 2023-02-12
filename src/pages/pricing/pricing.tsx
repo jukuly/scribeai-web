@@ -51,7 +51,7 @@ export default function({ user }: { user: User | null }) {
     <div className={styles.pricing}>
       <div className={styles.gradientCircle}></div>
       <main className={`${styles.plans} ${user && styles.clickable}`}>
-        <div className={styles.box} onClick={() => subscriptionOnClick('basic', 'price_1MWWWwLCVjNRyPuJ10MB3j92')}>
+        <div className={styles.box} onClick={() => subscriptionOnClick('basic', process.env.REACT_APP_PRICE_BASIC!)}>
           <h1>Basic</h1>
           <ul>
             <li>
@@ -68,7 +68,7 @@ export default function({ user }: { user: User | null }) {
             <div className={styles.smallText}>/month</div>
           </div>
         </div>
-        <div className={styles.box} onClick={() => subscriptionOnClick('standard', 'price_1MXqP3LCVjNRyPuJZK82is4C')}>
+        <div className={styles.box} onClick={() => subscriptionOnClick('standard', process.env.REACT_APP_PRICE_STANDARD!)}>
           <h1>Standard</h1>
           <ul>
             <li>
@@ -91,7 +91,7 @@ export default function({ user }: { user: User | null }) {
             <div className={styles.smallText}>/month</div>
           </div>
         </div>
-        <div className={styles.box} onClick={() => subscriptionOnClick('pro', 'price_1MXqTeLCVjNRyPuJZx8k915J')}>
+        <div className={styles.box} onClick={() => subscriptionOnClick('pro', process.env.REACT_APP_PRICE_PRO!)}>
           <h1>Pro</h1>
           <ul>
             <li>
