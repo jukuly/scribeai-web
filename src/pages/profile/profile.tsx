@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import styles from './profile.module.scss';
 
 import usePremiumStatus from '../../stripe/usePremiumStatus';
+import PopUp from '../../components/popUp/popUp';
+import { Loading } from '../../components/loading/loading';
 
 function isPasswordValid(passwordRef: RefObject<HTMLInputElement>): boolean {
 
@@ -34,6 +36,10 @@ export default function({ user }: { user: User | null }) {
   const [password, setPassword] = useState<string>('idk ur password');
   const [displayName, setDisplayName] = useState<string>('');
 
+  const [openPopUp, setOpenPopUp] = useState<boolean>(false);
+  const [currentPassword, setCurrentPassword] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
+
   const passwordRef = useRef<HTMLInputElement>(null);
   const passwordConfirm = useRef<HTMLInputElement>(null);
 
@@ -62,81 +68,108 @@ export default function({ user }: { user: User | null }) {
         return;
       }
       updatePassword(user, password)
-      .catch(err => {
-        if (err.code === 'auth/requires-recent-login') {
-          const currentPassword = prompt('Please enter your current password');
-          reauthenticateWithCredential(user, EmailAuthProvider.credential(user.email!, currentPassword!))
-          .then(() => {
-            updatePassword(user, password);
-          })
-          .catch(e => {
-            if (e.code === 'auth/wrong-password') setError('Password incorrect')
-            else setError(e.code)
-          });          
-        } else {
-          setError(err.code)
-        }
-      });
+        .catch(err => {
+          if (err.code === 'auth/requires-recent-login') {
+            setOpenPopUp(true);         
+          } else {
+            setError(err.code)
+          }
+        });
     }
     setEditName(false);
     setEditPassword(false);
     setError('');
   }
 
-  return (
-    <div className={styles.profile}>
-      <div className={styles.gradientCircle}></div>
-      <main className={styles.box}>
-        <h1>Profile</h1>
-        <button className={styles.plan} onClick={() => navigate('/pricing')}>
-          {premiumStatus ? premiumStatus.replace(/^./, premiumStatus[0].toUpperCase()) : 'Choose a plan'}
-        </button>
-        <form onSubmit={event => {
-          event.preventDefault();
-          saveChanges();
-        }}>
-          <span>
-            Display Name:
-          </span>
-          <div className={styles.inputGroup}>
-            <input type='text' value={displayName} disabled={!editName} onChange={event => setDisplayName(event.target.value)} />
-            <span className={`material-symbols-outlined ${styles.edit} ${!editName ? styles.show : styles.hidden}`} onClick={() => setEditName(true)}>
-              edit
-            </span>
-          </div>
+  function changePasswordAfterReauthentication() {
+    if (!user) return;
+    setLoading(true);
+    reauthenticateWithCredential(user, EmailAuthProvider.credential(user.email!, currentPassword!))
+      .then(() => {
+        updatePassword(user, password);
+      })
+      .catch(e => {
+        if (e.code === 'auth/wrong-password') setError('Password incorrect');
+        else setError(e.code);
+      });
+    setCurrentPassword('');
+    setLoading(false);
+    setOpenPopUp(false);
+  }
 
-          <span>
-            Password:
-          </span>
-          <div className={styles.inputGroup}>
-            <input type='password' value={password} ref={passwordRef} disabled={!editPassword} onChange={event => {
-              isPasswordValid(passwordRef);
-              setPassword(event.target.value);
-              }} />
-            <span className={`material-symbols-outlined ${styles.edit} ${!editPassword ? styles.show : styles.hidden}`} onClick={() => {
-              setEditPassword(true);
-              setPassword('');
+  return (
+    <>
+      <PopUp openTrigger={openPopUp}>
+        {
+          loading ?
+          <Loading />
+          :
+          <>
+            <div>Please enter your current password</div>
+            <form className={styles.popUpForm} onSubmit={event => {
+                event.preventDefault();
+                changePasswordAfterReauthentication();
               }}>
-              edit
+              <input type='password' value={currentPassword} onChange={event => setCurrentPassword(event.target.value)} />
+              <button className={styles.button} type='submit'>Reauthenticate</button>
+            </form>
+          </>
+        }
+      </PopUp>
+      <div className={styles.profile}>
+        <div className={styles.gradientCircle}></div>
+        <main className={styles.box}>
+          <h1>Profile</h1>
+          <button className={styles.plan} onClick={() => navigate('/pricing')}>
+            {premiumStatus ? premiumStatus.replace(/^./, premiumStatus[0].toUpperCase()) : 'Choose a plan'}
+          </button>
+          <form onSubmit={event => {
+            event.preventDefault();
+            saveChanges();
+          }}>
+            <span>
+              Display Name:
             </span>
-          </div>
-          {
-            editPassword &&
-            <>
-              <span>
-                Confirm Password:
+            <div className={styles.inputGroup}>
+              <input type='text' value={displayName} disabled={!editName} onChange={event => setDisplayName(event.target.value)} />
+              <span className={`material-symbols-outlined ${styles.edit} ${!editName ? styles.show : styles.hidden}`} onClick={() => setEditName(true)}>
+                edit
               </span>
-              <div className={styles.inputGroup}>
-                <input type='password' ref={passwordConfirm} disabled={!editPassword} onChange={() => isPasswordConfirmValid(passwordRef, passwordConfirm)} />
-              </div>
-            </>
-          }
-          <div className={styles.belowFields}>
-            <span>{ error }</span>
-            <button className={styles.saveButton} type='submit'>Save changes</button>
-          </div>
-        </form>
-      </main>
-    </div>
+            </div>
+
+            <span>
+              Password:
+            </span>
+            <div className={styles.inputGroup}>
+              <input type='password' value={password} ref={passwordRef} disabled={!editPassword} onChange={event => {
+                isPasswordValid(passwordRef);
+                setPassword(event.target.value);
+                }} />
+              <span className={`material-symbols-outlined ${styles.edit} ${!editPassword ? styles.show : styles.hidden}`} onClick={() => {
+                setEditPassword(true);
+                setPassword('');
+                }}>
+                edit
+              </span>
+            </div>
+            {
+              editPassword &&
+              <>
+                <span>
+                  Confirm Password:
+                </span>
+                <div className={styles.inputGroup}>
+                  <input type='password' ref={passwordConfirm} disabled={!editPassword} onChange={() => isPasswordConfirmValid(passwordRef, passwordConfirm)} />
+                </div>
+              </>
+            }
+            <div className={styles.belowFields}>
+              <span>{ error }</span>
+              <button className={styles.button} type='submit'>Save changes</button>
+            </div>
+          </form>
+        </main>
+      </div>
+    </> 
   );
 }
