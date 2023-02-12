@@ -51,7 +51,7 @@ export default function({ user }: { user: User | null }) {
     <div className={styles.pricing}>
       <div className={styles.gradientCircle}></div>
       <main className={`${styles.plans} ${user && styles.clickable}`}>
-        <div className={styles.box} onClick={() => subscriptionOnClick('basic', process.env.REACT_APP_PRICE_BASIC!)}>
+        <div className={styles.box} onClick={() => subscriptionOnClick('basic', process.env.REACT_APP_STRIPE_PRICE_BASIC!)}>
           <h1>Basic</h1>
           <ul>
             <li>
@@ -68,7 +68,7 @@ export default function({ user }: { user: User | null }) {
             <div className={styles.smallText}>/month</div>
           </div>
         </div>
-        <div className={styles.box} onClick={() => subscriptionOnClick('standard', process.env.REACT_APP_PRICE_STANDARD!)}>
+        <div className={styles.box} onClick={() => subscriptionOnClick('standard', process.env.REACT_APP_STRIPE_PRICE_STANDARD!)}>
           <h1>Standard</h1>
           <ul>
             <li>
@@ -91,7 +91,7 @@ export default function({ user }: { user: User | null }) {
             <div className={styles.smallText}>/month</div>
           </div>
         </div>
-        <div className={styles.box} onClick={() => subscriptionOnClick('pro', process.env.REACT_APP_PRICE_PRO!)}>
+        <div className={styles.box} onClick={() => subscriptionOnClick('pro', process.env.REACT_APP_STRIPE_PRICE_PRO!)}>
           <h1>Pro</h1>
           <ul>
             <li>
@@ -112,7 +112,7 @@ export default function({ user }: { user: User | null }) {
           <span className={styles.linkBelow} onClick={() => cancelOnClick()}>
             Cancel subscription
           </span>
-          <a className={styles.linkBelow} href='https://billing.stripe.com/p/login/test_eVadTj6Ld86u7BedQQ'>
+          <a className={styles.linkBelow} href={process.env.REACT_APP_STRIPE_CUSTOMER_PORTAL}>
             Customer portal
           </a>
         </>
