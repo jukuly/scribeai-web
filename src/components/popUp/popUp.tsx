@@ -3,21 +3,13 @@ import { useEffect, useRef, useState } from 'react';
 import useClickOutside from '../../hooks/useClickOutside';
 
 export default function({ children, openTrigger }: { children: any, openTrigger: boolean }) {
-  const [opened, setOpened] = useState<boolean>(false);
+  const [opened, setOpened] = useState<boolean>(true);
 
   const popUp = useRef(null);
   
-  useClickOutside(popUp, () => closePopUp());
+  useClickOutside(popUp, () => setOpened(false));
 
-  useEffect(() => openTrigger ? openPopUp() : closePopUp(), [openTrigger]);
-
-  function openPopUp() {
-    setOpened(true);
-  }
-
-  function closePopUp() {
-    setOpened(false);
-  }
+  useEffect(() => setOpened(opened => !opened), [openTrigger]);
 
   return (
     opened ?

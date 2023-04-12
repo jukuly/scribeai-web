@@ -70,7 +70,7 @@ export default function({ user }: { user: User | null }) {
       updatePassword(user, password)
         .catch(err => {
           if (err.code === 'auth/requires-recent-login') {
-            setOpenPopUp(true);         
+            setOpenPopUp(openPopUp => !openPopUp);        
           } else {
             setError(err.code)
           }
@@ -94,7 +94,7 @@ export default function({ user }: { user: User | null }) {
       });
     setCurrentPassword('');
     setLoading(false);
-    setOpenPopUp(false);
+    setOpenPopUp(openPopUp => !openPopUp);
   }
 
   return (

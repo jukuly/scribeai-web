@@ -32,7 +32,7 @@ export default function({ user }: { user: User | null }) {
         alert('Subscription successfully updated!');
       }
     });
-    setOpenPopUp(true);
+    setOpenPopUp(openPopUp => !openPopUp);
     setPrompt(`to confirm you want to upgrade from
     ${premiumStatus!.replace(/^./, premiumStatus![0].toUpperCase())} to ${plan.replace(/^./, plan[0].toUpperCase())}`);
   }
@@ -45,7 +45,7 @@ export default function({ user }: { user: User | null }) {
         alert('Subscription successfully canceled!');
       }
     });
-    setOpenPopUp(true);
+    setOpenPopUp(openPopUp => !openPopUp);
     setPrompt(`to confirm you want to cancel your subscription
     You will still have access for the reminder of the billing cycle`);
   }
@@ -62,7 +62,7 @@ export default function({ user }: { user: User | null }) {
     }
     setCurrentPassword('');
     setLoading(false);
-    setOpenPopUp(false);
+    setOpenPopUp(openPopUp => !openPopUp);
   }
 
   return (
